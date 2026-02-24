@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="100" height="130" viewBox="0 0 100 130">
+
+  <!-- 整体圆角矩形背景 -->
+  <rect x="0" y="0" width="100" height="130"
+        rx="12" ry="12"
+        fill="#FEF5DC"
+        stroke="#1F1F1F"
+        stroke-width="2" />
+
+  <!-- 顶部条（放卡名）-->
+  <rect x="2" y="2" width="96" height="24"
+        rx="8" ry="8"
+        fill="#F2D173" />      <!-- 顶栏背景色 -->
+
+  <!-- 费点泡泡留白 -->
+  <circle cx="15" cy="115" r="12"
+          fill="#FFFFFF" />
+
+  <!-- 中央图标背景圆（你上图里卡图后面那个发光圆）-->
+  <circle cx="50" cy="70" r="25"
+        fill="rgb(250,200,50)"
+        fill-opacity="0.3" />
+</svg>

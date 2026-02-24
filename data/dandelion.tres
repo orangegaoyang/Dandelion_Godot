@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://imw0gfqloxvx"]
+
+[ext_resource type="Script" uid="uid://cskttlyv47oym" path="res://data/card_data.gd" id="1_7kbde"]
+[ext_resource type="Texture2D" uid="uid://bo2xe46stwxre" path="res://assets/sprites/cards/flower_card.png" id="1_tqq35"]
+[ext_resource type="Script" uid="uid://cmhiltogktjwt" path="res://scripts/cards/dandelion_card.gd" id="2_oif05"]
+
+[resource]
+script = ExtResource("1_7kbde")
+id = "dandelion"
+name = "Dandelion"
+icon = ExtResource("1_tqq35")
+logic_script = ExtResource("2_oif05")
+metadata/_custom_type_script = "uid://cskttlyv47oym"

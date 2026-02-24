@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bee8e2iwcdn4c"]
+
+[ext_resource type="Script" uid="uid://chq87k4ov5wqr" path="res://scripts/plants/dandelion.gd" id="1_fxft2"]
+[ext_resource type="Texture2D" uid="uid://chuwgspd5ugnh" path="res://assets/sprites/plants/tile_dandelion.png" id="1_pi30c"]
+
+[node name="Dandelion" type="Node2D" unique_id=868794756]
+script = ExtResource("1_fxft2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2085733697]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_pi30c")
