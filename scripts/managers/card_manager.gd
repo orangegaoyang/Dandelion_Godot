@@ -3,11 +3,11 @@ class_name CardManager
 
 @export var world: World = null
 
-@onready var BaseCardScene = preload("res://scenes/cards/BaseCard.tscn")
+@onready var BaseCardScene = preload("res://scenes/cards/base_card.tscn")
 var current_card: BaseCard = null
 
 var wind_data = preload("res://data/wind_card.tres")
-var dandelion_data = preload("res://data/dandelion.tres")
+var dandelion_data = preload("res://data/dandelion_card.tres")
 	
 func _ready() -> void:
 	#mouse_filter = MOUSE_FILTER_STOP
@@ -26,7 +26,6 @@ func _on_card_selected(card: BaseCard):
 	current_card = card
 
 func use_current_card(cell: Vector2i):
-	print("use current card:", current_card.name)
 	if current_card:
 		current_card.use(world, cell)
 		current_card.queue_free()

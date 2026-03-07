@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cnwl6eqdw63yj"]
+
+[node name="QuestItem" type="Control" unique_id=1813095280]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=258869860]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer" unique_id=1938482646]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=293224273]
+layout_mode = 2

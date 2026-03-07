@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch0741bjwqa1r"
-path="res://.godot/imported/tilesheet_complete.png-2060b46fc35e8dc7ff9d2e2d76fa27f4.ctex"
+uid="uid://bxsa2p2xdtm5j"
+path="res://.godot/imported/mapPack_tilesheet.png-4d8c9f3dd38356c44bb935d952a76266.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/atlas/tilesheet_complete.png"
-dest_files=["res://.godot/imported/tilesheet_complete.png-2060b46fc35e8dc7ff9d2e2d76fa27f4.ctex"]
+source_file="res://assets/atlas/mapPack_tilesheet.png"
+dest_files=["res://.godot/imported/mapPack_tilesheet.png-4d8c9f3dd38356c44bb935d952a76266.ctex"]
 
 [params]
 

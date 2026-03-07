@@ -1,0 +1,276 @@
+[gd_scene format=4 uid="uid://cqow47bch5ocs"]
+
+[ext_resource type="Texture2D" uid="uid://1815ug180b15" path="res://assets/quest_bg.png" id="3_ow5a4"]
+[ext_resource type="Script" uid="uid://bv6l6itb4ktnc" path="res://scripts/board.gd" id="4_6q06x"]
+[ext_resource type="Texture2D" uid="uid://c8m0eebtm2kil" path="res://assets/atlas/mapPack_tilesheet.png" id="4_hujxm"]
+[ext_resource type="Script" uid="uid://b1g0cauvkpafc" path="res://scripts/managers/card_manager.gd" id="4_o6xl0"]
+[ext_resource type="Script" uid="uid://nrqeaew2dlnd" path="res://scripts/world.gd" id="4_ow5a4"]
+[ext_resource type="Script" uid="uid://ct4scx67cpssd" path="res://scenes/main/camera_2d.gd" id="5_hujxm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yyfjg"]
+texture = ExtResource("4_hujxm")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+16:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+16:11/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_b1x3f"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_yyfjg")
+
+[sub_resource type="FontVariation" id="FontVariation_ow5a4"]
+variation_embolden = -0.03
+
+[sub_resource type="LabelSettings" id="LabelSettings_hujxm"]
+font = SubResource("FontVariation_ow5a4")
+font_size = 32
+
+[node name="Main" type="Control" unique_id=1198359330]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="World" type="Node2D" parent="." unique_id=210007842 node_paths=PackedStringArray("board", "camera")]
+script = ExtResource("4_ow5a4")
+board = NodePath("Board")
+camera = NodePath("Camera2D")
+
+[node name="Board" type="TileMapLayer" parent="World" unique_id=1916832511 node_paths=PackedStringArray("cardManager")]
+tile_map_data = PackedByteArray("AAAAAAkAAQAAAAQAAAABAAkAAQAAAAQAAAACAAkAAQAAAAQAAAADAAkAAQAAAAQAAAAEAAkAAQAAAAQAAAAFAAkAAQAAAAQAAAAGAAkAAQAAAAQAAAAHAAkAAQAAAAQAAAAIAAkAAQAAAAQAAAAJAAkAAQAAAAQAAAAKAAkAAQAAAAQAAAALAAkAAQAAAAQAAAAMAAkAAQAAAAQAAAANAAkAAQAAAAQAAAAOAAkAAQAAAAQAAAANAAgAAQAAAAQAAAAMAAgAAQAAAAQAAAALAAgAAQAAAAQAAAAKAAgAAQAAAAQAAAAJAAgAAQAAAAQAAAAIAAgAAQAAAAQAAAAHAAgAAQAAAAQAAAAGAAgAAQAAAAQAAAAFAAgAAQAAAAQAAAAEAAgAAQAAAAQAAAADAAgAAQAAAAQAAAACAAgAAQAAAAQAAAABAAgAAQAAAAQAAAAAAAgAAQAAAAQAAAAAAAcAAQAAAAQAAAAAAAYAAQAAAAQAAAAAAAUAAQAAAAQAAAAAAAQAAQAAAAQAAAAAAAMAAQAAAAQAAAAAAAIAAQAAAAQAAAAAAAEAAQAAAAQAAAAAAAAAAQAAAAQAAAABAAAAAQAAAAQAAAACAAAAAQAAAAQAAAADAAAAAQAAAAQAAAAEAAAAAQAAAAQAAAAFAAAAAQAAAAQAAAAGAAAAAQAAAAQAAAAHAAAAAQAAAAQAAAAIAAAAAQAAAAQAAAAJAAAAAQAAAAQAAAAKAAAAAQAAAAQAAAALAAAAAQAAAAQAAAAMAAAAAQAAAAQAAAANAAAAAQAAAAQAAAAOAAAAAQAAAAQAAAAOAAEAAQAAAAQAAAAOAAIAAQAAAAQAAAAOAAMAAQAAAAQAAAAPAAQAAQAAAAQAAAAPAAUAAQAAAAQAAAAPAAYAAQAAAAQAAAAPAAcAAQAAAAQAAAAPAAgAAQAAAAQAAAAPAAkAAQAAAAQAAAAOAAgAAQAAAAQAAAAOAAcAAQAAAAQAAAAOAAYAAQAAAAQAAAAOAAUAAQAAAAQAAAAOAAQAAQAAAAQAAAANAAEAAQAAAAQAAAAMAAEAAQAAAAQAAAALAAEAAQAAAAQAAAAKAAEAAQAAAAQAAAAJAAEAAQAAAAQAAAAIAAEAAQAAAAQAAAAHAAEAAQAAAAQAAAAGAAEAAQAAAAQAAAACAAEAAQAAAAQAAAABAAEAAQAAAAQAAAADAAEAAQAAAAQAAAAEAAEAAQAAAAQAAAAFAAEAAQAAAAQAAAANAAIAAQAAAAQAAAAMAAIAAQAAAAQAAAALAAIAAQAAAAQAAAAKAAIAAQAAAAQAAAAJAAIAAQAAAAQAAAAIAAIAAQAAAAQAAAAHAAIAAQAAAAQAAAAGAAIAAQAAAAQAAAAFAAIAAQAAAAQAAAAEAAIAAQAAAAQAAAADAAIAAQAAAAQAAAACAAIAAQAAAAQAAAABAAIAAQAAAAQAAAABAAMAAQAAAAQAAAACAAMAAQAAAAQAAAADAAMAAQAAAAQAAAAEAAMAAQAAAAQAAAAFAAMAAQAAAAQAAAAGAAMAAQAAAAQAAAAHAAMAAQAAAAQAAAAIAAMAAQAAAAQAAAAJAAMAAQAAAAQAAAAKAAMAAQAAAAQAAAALAAMAAQAAAAQAAAAMAAMAAQAAAAQAAAANAAMAAQAAAAQAAAANAAQAAQAAAAQAAAAMAAQAAQAAAAQAAAALAAQAAQAAAAQAAAAKAAQAAQAAAAQAAAAJAAQAAQAAAAQAAAAIAAQAAQAAAAQAAAAHAAQAAQAAAAQAAAAGAAQAAQAAAAQAAAAFAAQAAQAAAAQAAAAEAAQAAQAAAAQAAAADAAQAAQAAAAQAAAACAAQAAQAAAAQAAAABAAQAAQAAAAQAAAABAAUAAQAAAAQAAAACAAUAAQAAAAQAAAADAAUAAQAAAAQAAAAEAAUAAQAAAAQAAAAFAAUAAQAAAAQAAAAGAAUAAQAAAAQAAAAHAAUAAQAAAAQAAAAIAAUAAQAAAAQAAAAJAAUAAQAAAAQAAAAKAAUAAQAAAAQAAAALAAUAAQAAAAQAAAAMAAUAAQAAAAQAAAANAAUAAQAAAAQAAAANAAYAAQAAAAQAAAAMAAYAAQAAAAQAAAALAAYAAQAAAAQAAAAKAAYAAQAAAAQAAAAJAAYAAQAAAAQAAAAIAAYAAQAAAAQAAAAHAAYAAQAAAAQAAAAGAAYAAQAAAAQAAAACAAYAAQAAAAQAAAABAAYAAQAAAAQAAAADAAYAAQAAAAQAAAAEAAYAAQAAAAQAAAAFAAYAAQAAAAQAAAAGAAcAAQAAAAQAAAAFAAcAAQAAAAQAAAAEAAcAAQAAAAQAAAADAAcAAQAAAAQAAAACAAcAAQAAAAQAAAABAAcAAQAAAAQAAAAHAAcAAQAAAAQAAAAIAAcAAQAAAAQAAAAJAAcAAQAAAAQAAAAKAAcAAQAAAAQAAAALAAcAAQAAAAQAAAAMAAcAAQAAAAQAAAANAAcAAQAAAAQAAAAPAAAAAQAAAAQAAAAPAAEAAQAAAAQAAAAPAAIAAQAAAAQAAAAPAAMAAQAAAAQAAAARAAAAAQAAAAQAAAARAAEAAQAAAAQAAAARAAIAAQAAAAQAAAARAAMAAQAAAAQAAAARAAQAAQAAAAQAAAAQAAUAAQAAAAQAAAAQAAYAAQAAAAQAAAAQAAcAAQAAAAQAAAAQAAgAAQAAAAQAAAAQAAkAAQAAAAQAAAARAAkAAQAAAAQAAAARAAgAAQAAAAQAAAARAAcAAQAAAAQAAAARAAYAAQAAAAQAAAARAAUAAQAAAAQAAAAQAAAAAQAAAAQAAAAQAAEAAQAAAAQAAAAQAAIAAQAAAAQAAAAQAAMAAQAAAAQAAAAQAAQAAQAAAAQAAAA=")
+tile_set = SubResource("TileSet_b1x3f")
+occlusion_enabled = false
+navigation_enabled = false
+script = ExtResource("4_6q06x")
+cardManager = NodePath("../../CardPanel")
+
+[node name="Camera2D" type="Camera2D" parent="World" unique_id=1261486779]
+script = ExtResource("5_hujxm")
+
+[node name="CardPanel" type="HBoxContainer" parent="." unique_id=281845968 node_paths=PackedStringArray("world")]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 530.0
+offset_right = 1029.0
+offset_bottom = 652.0
+script = ExtResource("4_o6xl0")
+world = NodePath("../World")
+
+[node name="QuestPanel" type="Control" parent="." unique_id=918053688]
+visible = false
+custom_minimum_size = Vector2(280, 650)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 880.0
+offset_right = 1160.0
+offset_bottom = 650.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="QuestPanel" unique_id=1955892163]
+z_index = 1
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 650.0
+texture = ExtResource("3_ow5a4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuestPanel/Background" unique_id=1975273611]
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 650.0
+
+[node name="Title" type="Label" parent="QuestPanel/Background/VBoxContainer" unique_id=1332557945]
+layout_mode = 2
+text = "QUESTS"
+label_settings = SubResource("LabelSettings_hujxm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuestList" type="VBoxContainer" parent="QuestPanel/Background/VBoxContainer" unique_id=1894000124]
+layout_mode = 2

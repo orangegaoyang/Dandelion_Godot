@@ -6,6 +6,8 @@ signal card_selected(card)
 @export var name_label:Label = null
 @export var icon:TextureRect = null
 
+@onready var card_manager:CardManager = null
+
 var card_data: CardData
 
 func _ready() -> void:
