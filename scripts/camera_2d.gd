@@ -1,5 +1,6 @@
 extends Camera2D
 
+const drag_cursor = preload("res://assets/cursors/expand-arrows.png")
 var dragging = false
 
 func _ready() -> void:
@@ -11,9 +12,11 @@ func _ready() -> void:
 	#position = get_screen_center_position()
 
 func start_drag(mouse_pos: Vector2):
+	Input.set_custom_mouse_cursor(drag_cursor)
 	dragging = true
 	
 func stop_drag():
+	Input.set_custom_mouse_cursor(GameConfig.GAME_CURSOR)
 	dragging = false
 	
 func drag(event: InputEventMouseMotion):

@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://cqow47bch5ocs"]
 
-[ext_resource type="Script" uid="uid://dp1u7ptvlyhbl" path="res://scripts/main.gd" id="1_yyfjg"]
 [ext_resource type="Texture2D" uid="uid://1815ug180b15" path="res://assets/quest_bg.png" id="3_ow5a4"]
 [ext_resource type="Script" uid="uid://bv6l6itb4ktnc" path="res://scripts/board/board.gd" id="4_6q06x"]
 [ext_resource type="TileSet" uid="uid://dnhvkn5c1eo04" path="res://resources/tile.tres" id="4_hujxm"]
@@ -8,7 +7,6 @@
 [ext_resource type="Script" uid="uid://nrqeaew2dlnd" path="res://scripts/world.gd" id="4_ow5a4"]
 [ext_resource type="Script" uid="uid://ct4scx67cpssd" path="res://scripts/camera_2d.gd" id="5_hujxm"]
 [ext_resource type="Texture2D" uid="uid://bfvmsyd46uiad" path="res://assets/atlas/preview.png" id="5_yyfjg"]
-[ext_resource type="PackedScene" uid="uid://m6avgb5f7hjw" path="res://scenes/main/beam.tscn" id="7_b1x3f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b1x3f"]
 texture = ExtResource("5_yyfjg")
@@ -27,10 +25,7 @@ variation_embolden = -0.03
 font = SubResource("FontVariation_ow5a4")
 font_size = 32
 
-[node name="Main" type="Node2D" unique_id=1253428245 node_paths=PackedStringArray("timer", "world")]
-script = ExtResource("1_yyfjg")
-timer = NodePath("Timer")
-world = NodePath("World")
+[node name="Main" type="Node2D" unique_id=1253428245]
 
 [node name="World" type="Node2D" parent="." unique_id=210007842 node_paths=PackedStringArray("board", "camera", "cardManager")]
 script = ExtResource("4_ow5a4")
@@ -65,8 +60,6 @@ tile_set = ExtResource("4_hujxm")
 
 [node name="Preview" type="TileMapLayer" parent="World/Board" unique_id=706578575]
 tile_set = SubResource("TileSet_a8run")
-
-[node name="Beam" parent="World" unique_id=1630357478 instance=ExtResource("7_b1x3f")]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=115148567]
 
@@ -116,8 +109,3 @@ vertical_alignment = 1
 
 [node name="QuestList" type="VBoxContainer" parent="UI/QuestPanel/Background/VBoxContainer" unique_id=1894000124]
 layout_mode = 2
-
-[node name="Timer" type="Timer" parent="." unique_id=917790877]
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

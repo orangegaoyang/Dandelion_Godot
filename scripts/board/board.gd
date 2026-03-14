@@ -1,13 +1,14 @@
 extends Node2D
 class_name Board
 
-@export var cardManager:CardManager = null
 @export var ocrean_layer: TileMapLayer = null
 @export var beach_layer: TileMapLayer = null
 @export var land_layer: TileMapLayer = null
 @export var vegetation_layer: TileMapLayer = null
+@export var preview_layer: TileMapLayer = null
 
 var map_data = []
+var preview_cell = null
 
 const mask_tile = {
 	254:Vector2i(0,0),   # 全连接
@@ -34,11 +35,26 @@ func _ready() -> void:
 	generate_map()
 	draw_map()
 
-func place_card(world_pos):
-	cardManager.use_current_card(ocrean_layer.local_to_map(world_pos))
+func set_preview(world_pos:Vector2):
+	reset_preview()
+	preview_cell = local_to_map(world_pos)
+	
+	var placeable = !map_data[preview_cell.x][preview_cell.y].is_ocrean()
+	var tile = Vector2i(0,0)
+	if (!placeable):
+		tile = Vector2i(1,0)
+	preview_layer.set_cell(preview_cell,0,tile)
 
-func is_inside_map(cell: Vector2i):
-	return cell.x >=0 and cell.x< GameConfig.MAP_WIDTH and cell.y>=0 and cell.y< GameConfig.MAP_HEIGHT
+func reset_preview():
+	if (preview_cell):
+		preview_layer.erase_cell(preview_cell)
+		preview_cell = null
+		
+func local_to_map(world_pos: Vector2) -> Vector2i:
+	return ocrean_layer.local_to_map(world_pos)
+
+func map_to_local(cell: Vector2i) -> Vector2:
+	return ocrean_layer.map_to_local(cell)
 
 func get_map_center() -> Vector2i:
 	var used_rect = ocrean_layer.get_used_rect()  # TileMap 已使用区域
@@ -61,7 +77,7 @@ func generate_map():
 	
 	var noise = FastNoiseLite.new()
 	noise.seed = randi()
-	noise.frequency = 0.03
+	noise.frequency = 0.02
 	var biome_noise = FastNoiseLite.new()
 	biome_noise.seed = noise.seed + 1
 	biome_noise.frequency = 0.03
@@ -92,27 +108,49 @@ func generate_map():
 					cell.set_init_beach()
 					map_data[x].append(cell)
 					
+	smooth()
+	smooth()
+	smooth()
+	add_beach_margin()
+
+func add_beach_margin():
 	for x in range(GameConfig.MAP_WIDTH):
 		for y in range(GameConfig.MAP_HEIGHT):
-			if map_data[y][x].is_ocrean() == false:
+			if map_data[x][y].is_ocrean() == false:
 				for nx in neighbors8(x, y):  # 上下左右或8方向
-					if map_data[nx.y][nx.x].is_ocrean() == true:
-						map_data[y][x].set_init_beach()
+					if map_data[nx.x][nx.y].is_ocrean() == true:
+						map_data[x][y].set_init_beach()
 						break
 						
-	#for x in range(GameConfig.MAP_WIDTH):
-		#var s=""
-		#for y in range(GameConfig.MAP_HEIGHT):
-			#if map_data[y][x].is_ocrean() == true:
-				#s += " 0 "
-			#elif map_data[y][x].is_grass() == true:
-				#s += " 3 "
-			#elif map_data[y][x].is_terrain_soil() == true:
-				#s += " 2 "
-			#else: 
-				#s += " 1 "
-		#print (s)
+func smooth():
+	var i=0
 
+	for x in range(GameConfig.MAP_WIDTH):
+		for y in range(GameConfig.MAP_HEIGHT):
+			var counts = {}
+			for dy in range(-1, 2):
+				for dx in range(-1, 2):
+					var nx = x + dx
+					var ny = y + dy
+					if _inside(nx,ny):
+						var t = map_data[nx][ny].get_biome()
+						counts[t] = counts.get(t,0) + 1
+
+			var best_type = map_data[x][y].get_biome()
+			var best_count = 0
+			for t in counts:
+				if counts[t] > best_count:
+					best_count = counts[t]
+					best_type = t
+					
+			if map_data[x][y].get_biome() != best_type:
+				i = i+1
+				#print(i, "." , x," ", y, " from ", map_data[x][y].get_biome()," to ",best_type)
+				map_data[x][y].set_init_biome(best_type)
+			
+func _inside(nx, ny) -> bool:
+	return nx >= 0 and nx < GameConfig.MAP_WIDTH and ny >= 0 and ny < GameConfig.MAP_HEIGHT
+	
 func neighbors8(x, y):
 	var result = []
 	for dy in range(-1, 2):
@@ -121,7 +159,7 @@ func neighbors8(x, y):
 				continue
 			var nx = x + dx
 			var ny = y + dy
-			if nx >= 0 and nx < GameConfig.MAP_WIDTH and ny >= 0 and ny < GameConfig.MAP_HEIGHT:
+			if _inside(nx,ny):
 				result.append(Vector2(nx, ny))
 	return result
 	
@@ -136,7 +174,7 @@ func draw_terrain():
 			var tile = Vector2i(16,11)
 			ocrean_layer.set_cell(Vector2i(x,y), 0, tile)
 
-			if !map_data[y][x].is_ocrean():
+			if !map_data[x][y].is_ocrean():
 				var shift = choose_tile(x, y, Cell.Terrain.OCREAN)
 				tile = Vector2i(1,1) + shift
 				beach_layer.set_cell(Vector2i(x,y), 0, tile)
@@ -147,11 +185,11 @@ func draw_land():
 		for y in range(GameConfig.MAP_HEIGHT):
 			var tile
 			var shift = choose_tile(x, y, Cell.Terrain.BEACH)
-			if map_data[y][x].is_terrain_desert():
+			if map_data[x][y].is_terrain_desert():
 				tile = Vector2i(11,5) + shift
-			elif map_data[y][x].is_terrain_soil():
+			elif map_data[x][y].is_terrain_soil():
 				tile = Vector2i(6,5) + shift
-			elif map_data[y][x].is_terrain_snowfield():
+			elif map_data[x][y].is_terrain_snowfield():
 				tile = Vector2i(1,5) + shift
 			
 			if tile:
@@ -163,11 +201,11 @@ func draw_vegetation():
 		for y in range(GameConfig.MAP_HEIGHT):
 			var tile
 			var shift = choose_tile(x, y, null)
-			if map_data[y][x].is_grass():
+			if map_data[x][y].is_grass():
 				tile = Vector2i(6,1) + shift
-			elif map_data[y][x].is_tundra():
+			elif map_data[x][y].is_tundra():
 				tile = Vector2i(11,1) + shift
-			#elif map_data[y][x].is_savana():
+			#elif map_data[x][y].is_savana():
 				#tile = Vector2i() + shift
 			if (tile):
 				vegetation_layer.set_cell(Vector2i(x,y), 0, tile)
@@ -179,9 +217,9 @@ func choose_tile(x, y, base_biome):
 	for n in neighbors:
 		var test = false
 		if base_biome != null:
-			test = (map_data[n.y][n.x].get_biome() == base_biome)
+			test = (map_data[n.x][n.y].get_biome() == base_biome)
 		else:
-			test = (map_data[n.y][n.x].get_biome() != map_data[y][x].get_biome() )
+			test = (map_data[n.x][n.y].get_biome() != map_data[x][y].get_biome() )
 		
 		if test:
 			var d = Vector2(n.x - x, n.y - y)

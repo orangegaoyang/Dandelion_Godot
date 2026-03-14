@@ -22,6 +22,7 @@ GameConfig="*uid://bjvamad8mkrlp"
 [display]
 
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://vqiu4pgt15fl"
 
 [physics]
 

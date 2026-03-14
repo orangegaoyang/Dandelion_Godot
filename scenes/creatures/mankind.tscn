@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://vclehlme126a"]
+
+[ext_resource type="Script" uid="uid://b31p6lswv1naa" path="res://scripts/creatures/mankind.gd" id="1_a32x3"]
+[ext_resource type="Texture2D" uid="uid://bhfi4plq1sqq" path="res://assets/sprites/mankind/sprite_0.png" id="1_eudkw"]
+[ext_resource type="Texture2D" uid="uid://bhqgydx48ocwr" path="res://assets/sprites/mankind/sprite_1.png" id="2_canco"]
+[ext_resource type="Texture2D" uid="uid://dxqxrerhhjsm1" path="res://assets/sprites/mankind/sprite_2.png" id="3_ggf6p"]
+[ext_resource type="Texture2D" uid="uid://d12sew3wn5kkr" path="res://assets/sprites/mankind/sprite_3.png" id="4_a32x3"]
+[ext_resource type="Texture2D" uid="uid://bny4u2cebej7g" path="res://assets/sprites/mankind/sprite_4.png" id="5_dkn2p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rebrm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_eudkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_canco")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_eudkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ggf6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a32x3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dkn2p")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Mankind" type="Node2D" unique_id=1322708363 node_paths=PackedStringArray("animate")]
+script = ExtResource("1_a32x3")
+animate = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=25259998]
+sprite_frames = SubResource("SpriteFrames_rebrm")
+animation = &"idle"

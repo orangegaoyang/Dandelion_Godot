@@ -67,6 +67,16 @@ func set_init_grass():
 	temperature = TEMPERATE_COLD+STEP
 	vegetation = VEGETATION_FEATURE+STEP
 	
+func set_init_biome(t:Terrain):
+	if t==Terrain.OCREAN:
+		set_init_ocrean()
+	if t==Terrain.BEACH:
+		set_init_beach()
+	if t==Terrain.SOIL:
+		set_init_soil()
+	if t==Terrain.GRASSLAND:
+		set_init_grass()
+	
 func add_vegetation():
 	vegetation += STEP
 	

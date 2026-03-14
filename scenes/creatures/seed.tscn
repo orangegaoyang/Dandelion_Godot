@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b2gso2vbve4qa"]
+
+[ext_resource type="Script" uid="uid://boohx81u6dy7m" path="res://scripts/plants/seed.gd" id="1_i631h"]
+[ext_resource type="Texture2D" uid="uid://cn3x2sbvpqqff" path="res://assets/sprites/plants/tile_seed.png" id="2_fnn3q"]
+
+[node name="Seed" type="Node2D" unique_id=1616823056]
+script = ExtResource("1_i631h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=547208793]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_fnn3q")
