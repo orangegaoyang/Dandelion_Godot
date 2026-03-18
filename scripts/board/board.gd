@@ -31,6 +31,9 @@ const mask_tile = {
 	0: Vector2i(0,0),    # 单独
 }
 
+func is_land(x,y) ->bool:
+	return _inside(x,y) && !map_data[x][y].is_ocrean()
+
 func _ready() -> void:
 	generate_map()
 	draw_map()

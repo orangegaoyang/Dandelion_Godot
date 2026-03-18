@@ -70,16 +70,19 @@ tile_set = SubResource("TileSet_a8run")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=115148567]
 
-[node name="CardPanel" type="HBoxContainer" parent="UI" unique_id=281845968 node_paths=PackedStringArray("world")]
+[node name="CardPanel" type="Control" parent="UI" unique_id=791105040]
+layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -397.5
+offset_top = -115.0
+offset_right = 397.5
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("4_o6xl0")
-world = NodePath("../../World")
 
 [node name="QuestPanel" type="Control" parent="UI" unique_id=918053688]
 visible = false

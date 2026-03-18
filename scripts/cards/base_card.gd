@@ -38,7 +38,7 @@ func setup(data: CardData):
 
 func _on_mouse_entered():
 	var tween = create_tween()
-	tween.tween_property($CardVisual, "position:y", -20, 0.15)
+	tween.tween_property($CardVisual, "position:y", -50, 0.15)
 
 func _on_mouse_exited():
 	var tween = create_tween()

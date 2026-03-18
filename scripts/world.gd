@@ -24,7 +24,7 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			var world_pos = camera.get_global_mouse_position()
 			board.reset_preview()
-			cardManager.use_current_card(board.local_to_map(world_pos))
+			cardManager.use_current_card(board.local_to_map(world_pos), self)
 
 	if event is InputEventMouseMotion:
 		camera.drag(event)
