@@ -30,7 +30,8 @@ func _input(event):
 		camera.drag(event)
 		if (cardManager.is_card_selected()):
 			var world_pos = camera.get_global_mouse_position()
-			board.set_preview(world_pos)
+			var preview_cell = board.local_to_map(world_pos)
+			cardManager.set_usable(self, preview_cell)
 
 func plant(plant:BasePlant, cell: Vector2i):
 	plant.cell = cell

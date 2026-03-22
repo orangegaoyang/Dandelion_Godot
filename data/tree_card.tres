@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://badv1u2t4d8ka"]
+
+[ext_resource type="Texture2D" uid="uid://cnol2kj2jcdn5" path="res://assets/sprites/cards/tree.png" id="1_yyfb2"]
+[ext_resource type="Script" uid="uid://h24ub2a6smay" path="res://scripts/cards/tree_card.gd" id="2_tw4l1"]
+[ext_resource type="Script" uid="uid://cskttlyv47oym" path="res://data/card_data.gd" id="3_2wpx4"]
+
+[resource]
+script = ExtResource("3_2wpx4")
+id = "Tree"
+name = "Tree"
+icon = ExtResource("1_yyfb2")
+card_type = 2
+logic_script = ExtResource("2_tw4l1")
+metadata/_custom_type_script = "uid://cskttlyv47oym"

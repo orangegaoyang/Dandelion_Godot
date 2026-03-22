@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cgates2aqjvow"]
+
+[ext_resource type="Script" uid="uid://cskttlyv47oym" path="res://data/card_data.gd" id="1_4yeoq"]
+[ext_resource type="Texture2D" uid="uid://fg4d2vrrxx1x" path="res://assets/sprites/cards/plant.png" id="1_wwmkp"]
+[ext_resource type="Script" uid="uid://iaveocvdo2q5" path="res://scripts/cards/plant_card.gd" id="2_30joa"]
+
+[resource]
+script = ExtResource("1_4yeoq")
+id = "Plant"
+name = "Plant"
+icon = ExtResource("1_wwmkp")
+card_type = 2
+logic_script = ExtResource("2_30joa")
+metadata/_custom_type_script = "uid://cskttlyv47oym"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cwhytu8t45h5g"]
+
+[ext_resource type="Texture2D" uid="uid://damrh78spcwpx" path="res://assets/sprites/cards/coal.png" id="1_5teue"]
+[ext_resource type="Script" uid="uid://cskttlyv47oym" path="res://data/card_data.gd" id="1_kerkj"]
+[ext_resource type="Script" uid="uid://1bo3ha788i24" path="res://scripts/cards/mineral_card.gd" id="2_ran5f"]
+
+[resource]
+script = ExtResource("1_kerkj")
+id = "Mineral"
+name = "Mineral"
+icon = ExtResource("1_5teue")
+card_type = 2
+logic_script = ExtResource("2_ran5f")
+metadata/_custom_type_script = "uid://cskttlyv47oym"

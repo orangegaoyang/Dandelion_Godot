@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dtgt3fxas2uf0"]
+
+[ext_resource type="Texture2D" uid="uid://bnnj6ib5s44da" path="res://assets/sprites/cards/paw.png" id="1_bsg0r"]
+[ext_resource type="Script" uid="uid://cskttlyv47oym" path="res://data/card_data.gd" id="1_f8rpt"]
+[ext_resource type="Script" uid="uid://cbinvc3vfidjl" path="res://scripts/cards/crittor_card.gd" id="2_0fngb"]
+
+[resource]
+script = ExtResource("1_f8rpt")
+id = "Critter"
+name = "Critter"
+icon = ExtResource("1_bsg0r")
+card_type = 1
+logic_script = ExtResource("2_0fngb")
+metadata/_custom_type_script = "uid://cskttlyv47oym"

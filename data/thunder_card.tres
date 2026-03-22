@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dle8c4qb36kch"]
+
+[ext_resource type="Texture2D" uid="uid://c2god7foy8w5r" path="res://assets/sprites/cards/thunder.png" id="1_5yctc"]
+[ext_resource type="Script" uid="uid://deso45csb7s3y" path="res://scripts/cards/thunder_card.gd" id="2_m0fnk"]
+[ext_resource type="Script" uid="uid://cskttlyv47oym" path="res://data/card_data.gd" id="3_63qmm"]
+
+[resource]
+script = ExtResource("3_63qmm")
+id = "Thunder"
+name = "Thunder"
+icon = ExtResource("1_5yctc")
+logic_script = ExtResource("2_m0fnk")
+metadata/_custom_type_script = "uid://cskttlyv47oym"

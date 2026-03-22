@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="CardData" format=3 uid="uid://db1phm8l8smer"]
 
-[ext_resource type="Texture2D" uid="uid://cvjxo7lsx2hbj" path="res://assets/sprites/cards/wind_card.png" id="1_iq1yo"]
+[ext_resource type="Texture2D" uid="uid://ducaa5hs86vwo" path="res://assets/sprites/cards/wind.png" id="1_wdjtl"]
 [ext_resource type="Script" uid="uid://cskttlyv47oym" path="res://data/card_data.gd" id="1_xpnvp"]
 [ext_resource type="Script" uid="uid://b5s8p3t4so1vk" path="res://scripts/cards/wind_card.gd" id="2_wdjtl"]
 
 [resource]
 script = ExtResource("1_xpnvp")
-id = "wind"
+id = "Wind"
 name = "Wind"
-icon = ExtResource("1_iq1yo")
+icon = ExtResource("1_wdjtl")
 logic_script = ExtResource("2_wdjtl")
 metadata/_custom_type_script = "uid://cskttlyv47oym"

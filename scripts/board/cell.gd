@@ -3,114 +3,130 @@ extends Node
 class_name Cell
 
 enum Terrain{
-	OCREAN, BEACH,
-	SOIL,  DESERT, SNOWFIELD,
-	GRASSLAND, SAVANA, TUNDRA,
+	OCEAN, BEACH,
+	SOIL,  DESERT, BARREN,
+	GRASSLAND, SAVANNA, TUNDRA,
+	SNOWFIELD,SWAMP
 	# MOUNTAINS, VOLCANIC
-	# TROPIC,SWAMP, OIL, TUNDRA, 
+	# TROPIC, OIL, TUNDRA, 
 }
 
-var elevation: float
-#var moisture: float
-var temperature: float
-var vegetation:float
+var biome_name = {
+	Terrain.OCEAN:"ocean",
+	Terrain.BEACH:"beach",
+	Terrain.SOIL:"soil",  
+	Terrain.DESERT:"desert",
+	Terrain.BARREN:"barren",
+	Terrain.GRASSLAND:"grassland", 
+	Terrain.SAVANNA:"savanna",
+	Terrain.TUNDRA:"tundra",
+	Terrain.SNOWFIELD:"snowfield",
+	Terrain.SWAMP:"swamp",
+}
 
-const ELEVATATION_LOW = 0.5
-const ELEVATATION_HIGH = 0.8
-const TEMPERATE_COLD = 0.3
-const TEMPERATE_HOT = 0.8
-const VEGETATION_FEATURE = 0.5
+var x:int
+var y:int
 
-const STEP = 0.1
-const INIT_VALUE=0.5
+var elevation: int
+var moisture: int
+var temperature: int
+
+const TEMPERATE_COLD = -30
+const TEMPERATE_HOT = 30
+const MOISTURE_DRY = -30
+const MOISTURE_HUMID = 30
+
+const STEP = 10
+const INIT_VALUE=0
 
 func get_biome()->Terrain:
-	if elevation < ELEVATATION_LOW:
-		return Terrain.OCREAN
-	elif elevation == ELEVATATION_LOW:
+	if elevation < INIT_VALUE:
+		return Terrain.OCEAN
+	elif elevation == INIT_VALUE:
 		return Terrain.BEACH
-	elif elevation < ELEVATATION_HIGH:
-		if temperature < TEMPERATE_COLD:
-			if vegetation>VEGETATION_FEATURE:
+	elif elevation > INIT_VALUE:
+		if temperature <= TEMPERATE_COLD:
+			if moisture >= MOISTURE_HUMID:
+				return Terrain.SNOWFIELD
+			elif moisture > MOISTURE_DRY:
 				return Terrain.TUNDRA
 			else:
-				return Terrain.SNOWFIELD
+				return Terrain.BARREN
 		elif temperature < TEMPERATE_HOT:
-			if vegetation>VEGETATION_FEATURE:
+			if moisture >= MOISTURE_HUMID:
+				return Terrain.SWAMP
+			elif moisture > MOISTURE_DRY:
 				return Terrain.GRASSLAND
 			else:
 				return Terrain.SOIL
 		else:
-			if vegetation>VEGETATION_FEATURE:
-				return Terrain.SAVANA
+			if moisture>= MOISTURE_HUMID:
+				return Terrain.SWAMP
+			elif moisture > MOISTURE_DRY:
+				return Terrain.SAVANNA
 			else:
 				return Terrain.DESERT
-	return Terrain.OCREAN
+	return Terrain.OCEAN
 
-func set_init_ocrean():
-	elevation = ELEVATATION_LOW-STEP
+func set_init_ocean():
+	elevation = INIT_VALUE-STEP
 	temperature = INIT_VALUE
-	vegetation = INIT_VALUE
+	moisture = MOISTURE_HUMID
 	
 func set_init_beach():
-	elevation = ELEVATATION_LOW
+	elevation = INIT_VALUE
 	temperature = INIT_VALUE
-	vegetation = INIT_VALUE
+	moisture = INIT_VALUE
 	
 func set_init_soil():
-	elevation = ELEVATATION_LOW+STEP
+	elevation = INIT_VALUE+STEP
 	temperature = INIT_VALUE
-	vegetation = VEGETATION_FEATURE
+	moisture = MOISTURE_DRY
 
 func set_init_grass():
-	elevation = ELEVATATION_LOW+STEP
-	temperature = TEMPERATE_COLD+STEP
-	vegetation = VEGETATION_FEATURE+STEP
+	set_init_soil()
+	moisture = INIT_VALUE
 	
 func set_init_biome(t:Terrain):
-	if t==Terrain.OCREAN:
-		set_init_ocrean()
+	if t==Terrain.OCEAN:
+		set_init_ocean()
 	if t==Terrain.BEACH:
 		set_init_beach()
 	if t==Terrain.SOIL:
 		set_init_soil()
 	if t==Terrain.GRASSLAND:
 		set_init_grass()
+
+func add_moisture(count: int):
+	moisture += STEP * count
 	
-func add_vegetation():
-	vegetation += STEP
-	
-func is_ocrean() -> bool:
-	return elevation < ELEVATATION_LOW
+func add_temperature(count: int):
+	temperature += STEP * count
+
+func is_ocean() -> bool:
+	return elevation < INIT_VALUE
 
 func is_land() -> bool:
-	return elevation < ELEVATATION_HIGH and elevation > ELEVATATION_LOW
+	return elevation > INIT_VALUE
 	
 func is_terrain_desert() ->bool:
 	return is_land() and temperature >= TEMPERATE_HOT
 	
 func is_terrain_soil() ->bool:
-	return is_land() and temperature < TEMPERATE_HOT
+	return is_land() and temperature < TEMPERATE_HOT and temperature > TEMPERATE_COLD
 	
 func is_terrain_snowfield() ->bool:
 	return is_land() and temperature < TEMPERATE_COLD
 	
 func is_tundra() -> bool:
-	return is_terrain_snowfield() and vegetation>VEGETATION_FEATURE
+	return is_terrain_snowfield() and moisture > MOISTURE_DRY  and moisture < MOISTURE_HUMID
 	
 func is_grass() -> bool:
-	return is_terrain_soil() and vegetation>VEGETATION_FEATURE
+	return is_terrain_soil() and moisture > MOISTURE_DRY and moisture < MOISTURE_HUMID
 	
 func is_savana() -> bool:
-	return is_terrain_desert() and vegetation>VEGETATION_FEATURE
+	return is_terrain_desert() and moisture > MOISTURE_DRY and moisture < MOISTURE_HUMID
 	
-func get_base_biome() -> Terrain:
-	if is_savana():
-		return Terrain.DESERT
-	if is_grass():
-		return Terrain.SOIL
-	if is_tundra():
-		return Terrain.SNOWFIELD
-	if is_terrain_desert() or is_terrain_snowfield() or is_terrain_soil():
-		return Terrain.BEACH
-	return Terrain.OCREAN
+func is_swamp() -> bool:
+	return is_land() and temperature > TEMPERATE_COLD and moisture >= MOISTURE_HUMID
+	

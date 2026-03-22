@@ -10,7 +10,7 @@
         stroke-width="2" />
 
   <!-- 顶部条（放卡名）-->
-  <rect x="2" y="2" width="96" height="24"
+  <rect x="2" y="2" width="96" height="35"
         rx="8" ry="8"
         fill="#F2D173" />      <!-- 顶栏背景色 -->
 

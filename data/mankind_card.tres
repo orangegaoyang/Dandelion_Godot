@@ -2,14 +2,15 @@
 
 [ext_resource type="Script" uid="uid://caaqs0380xiln" path="res://scripts/cards/mankind_card.gd" id="1_7yo7j"]
 [ext_resource type="Texture2D" uid="uid://cecpxqkado7vk" path="res://assets/cursors/heart.png" id="1_bur2s"]
-[ext_resource type="Texture2D" uid="uid://csxbh6a0tfr4r" path="res://assets/sprites/cards/house.png" id="1_pcpgd"]
+[ext_resource type="Texture2D" uid="uid://cbcutn3v5pmxd" path="res://assets/sprites/cards/home.png" id="2_bur2s"]
 [ext_resource type="Script" uid="uid://cskttlyv47oym" path="res://data/card_data.gd" id="2_pcpgd"]
 
 [resource]
 script = ExtResource("2_pcpgd")
 id = "Mankind"
 name = "Mankind"
-icon = ExtResource("1_pcpgd")
+icon = ExtResource("2_bur2s")
+card_type = 1
 cursor = ExtResource("1_bur2s")
 logic_script = ExtResource("1_7yo7j")
 metadata/_custom_type_script = "uid://cskttlyv47oym"

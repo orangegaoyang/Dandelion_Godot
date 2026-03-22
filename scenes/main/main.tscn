@@ -41,15 +41,15 @@ cardManager = NodePath("../UI/CardPanel")
 [node name="Camera2D" type="Camera2D" parent="World" unique_id=1261486779]
 script = ExtResource("5_hujxm")
 
-[node name="Board" type="Node2D" parent="World" unique_id=1911259325 node_paths=PackedStringArray("ocrean_layer", "beach_layer", "land_layer", "vegetation_layer", "preview_layer")]
+[node name="Board" type="Node2D" parent="World" unique_id=1911259325 node_paths=PackedStringArray("ocean_layer", "beach_layer", "land_layer", "vegetation_layer", "preview_layer")]
 script = ExtResource("4_6q06x")
-ocrean_layer = NodePath("Ocrean")
+ocean_layer = NodePath("Ocean")
 beach_layer = NodePath("Beach")
 land_layer = NodePath("Land")
 vegetation_layer = NodePath("Vegetation")
 preview_layer = NodePath("Preview")
 
-[node name="Ocrean" type="TileMapLayer" parent="World/Board" unique_id=1916832511]
+[node name="Ocean" type="TileMapLayer" parent="World/Board" unique_id=1916832511]
 tile_set = ExtResource("4_hujxm")
 occlusion_enabled = false
 navigation_enabled = false

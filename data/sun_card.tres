@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://duk1wkc4ljqdl"]
+
+[ext_resource type="Texture2D" uid="uid://cgi7hax4j8sec" path="res://assets/sprites/cards/sun.png" id="1_w0r36"]
+[ext_resource type="Script" uid="uid://oaryfgau30ej" path="res://scripts/cards/sun_card.gd" id="2_4gx3v"]
+[ext_resource type="Script" uid="uid://cskttlyv47oym" path="res://data/card_data.gd" id="3_xg7ig"]
+
+[resource]
+script = ExtResource("3_xg7ig")
+id = "Sun"
+name = "Sun"
+icon = ExtResource("1_w0r36")
+logic_script = ExtResource("2_4gx3v")
+metadata/_custom_type_script = "uid://cskttlyv47oym"

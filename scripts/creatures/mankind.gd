@@ -28,7 +28,6 @@ func idle():
 	
 func walk_random():
 	var target = random_target(cell.x, cell.y)
-	print("start:", cell, " target:", target)
 	if (cell == target):
 		path = null
 	else:
@@ -51,7 +50,6 @@ func getAstar() -> AStarGrid2D:
 	
 func walk_to(target_cell: Vector2i):
 	path = getAstar().get_id_path(cell, target_cell)
-	print("from:", cell, " to:", target_cell, " path:", path)
 	path_index = 0
 	animate.play("walk")
 

@@ -11,19 +11,40 @@ var deck = []
 var current_card: BaseCard = null
 
 var wind_data = preload("res://data/wind_card.tres")
+var rain_data = preload("res://data/rain_card.tres")
+var sun_data = preload("res://data/sun_card.tres")
+var thunder_data = preload("res://data/thunder_card.tres")
 #var dandelion_data = preload("res://data/dandelion_card.tres")
 var mankind_data = preload("res://data/mankind_card.tres")
-	
+var crittor_data = preload("res://data/crittor_card.tres")
+var mineral_data = preload("res://data/mineral_card.tres")
+var plant_data = preload("res://data/plant_card.tres")
+var tree_data = preload("res://data/tree_card.tres")
+
 func _ready() -> void:
 	init_deck()
 	spawn_card_with_anim(mankind_data)
 
 func init_deck():
 	deck.clear()
-	for i in 10:
+	for i in 5:
+		deck.append(rain_data)
+	for i in 5:
+		deck.append(sun_data)
+	for i in 5:
 		deck.append(wind_data)
-	for i in 1:
-		deck.append(mankind_data)
+	#for i in 5:
+		#deck.append(mankind_data)
+	#for i in 5:
+		#deck.append(thunder_data)	
+	for i in 5:
+		deck.append(crittor_data)
+	for i in 10:
+		deck.append(mineral_data)
+	for i in 10:
+		deck.append(plant_data)
+	for i in 10:
+		deck.append(tree_data)
 	
 	deck.shuffle()
 
@@ -78,6 +99,10 @@ func use_current_card(cell: Vector2i, world: World):
 		current_card = null
 		rearrange_cards()
 		spawn_random_cards()
+
+func set_usable(world:World, cell:Cell):
+	if current_card:
+		return current_card.useable(world, cell)
 
 func rearrange_cards():
 	for i in cards.size():

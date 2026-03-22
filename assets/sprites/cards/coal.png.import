@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo2xe46stwxre"
-path="res://.godot/imported/flower_card.png-8f1c65a0808e6b90500c2ad2ca9bd599.ctex"
+uid="uid://damrh78spcwpx"
+path="res://.godot/imported/coal.png-c79810f63bf73920b2fcd9ce29cb7ad0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/cards/flower_card.png"
-dest_files=["res://.godot/imported/flower_card.png-8f1c65a0808e6b90500c2ad2ca9bd599.ctex"]
+source_file="res://assets/sprites/cards/coal.png"
+dest_files=["res://.godot/imported/coal.png-c79810f63bf73920b2fcd9ce29cb7ad0.ctex"]
 
 [params]
 

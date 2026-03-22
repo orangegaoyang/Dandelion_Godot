@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://blmfi88dar4gq"]
+
+[ext_resource type="Texture2D" uid="uid://cshd6r1uah2fd" path="res://assets/sprites/cards/rain.png" id="1_4qv8m"]
+[ext_resource type="Script" uid="uid://eburaf0vqs27" path="res://scripts/cards/rain_card.gd" id="2_4qv8m"]
+[ext_resource type="Script" uid="uid://cskttlyv47oym" path="res://data/card_data.gd" id="3_xkn0q"]
+
+[resource]
+script = ExtResource("3_xkn0q")
+id = "Rain"
+name = "Rain"
+icon = ExtResource("1_4qv8m")
+logic_script = ExtResource("2_4qv8m")
+metadata/_custom_type_script = "uid://cskttlyv47oym"
